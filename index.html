@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Novaflow · Edelmann Lab</title>
-<meta name="description" content="Novaflow workspace tailored to the Edelmann Lab — MMR, TGFBR2, and intestinal stem-cell biology at Albert Einstein College of Medicine.">
+<meta name="description" content="Novaflow workspace tailored to the Edelmann Lab — MMR-deficient intestinal stem-cell biology at Albert Einstein College of Medicine.">
 <link rel="icon" type="image/png" href="assets/logo-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -349,6 +349,45 @@ body {
 }
 .msg-content .ref a { color: var(--text-secondary); }
 
+.source-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 14px;
+  font-size: 10.5px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid;
+  transition: var(--transition);
+  margin: 2px 3px;
+}
+.source-badge:hover { transform: translateY(-1px); }
+.source-badge.geo { background: var(--green-soft); color: var(--green); border-color: rgba(74,222,128,0.25); }
+.source-badge.geo:hover { border-color: var(--green); }
+.source-badge.pubmed { background: var(--blue-soft); color: var(--blue); border-color: rgba(96,165,250,0.25); }
+.source-badge.pubmed:hover { border-color: var(--blue); }
+
+.table-caption {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.caveat-box {
+  background: rgba(251,146,60,0.08);
+  border: 1px solid rgba(251,146,60,0.25);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin: 10px 0;
+  font-size: 12px;
+  color: var(--orange);
+  line-height: 1.55;
+}
+.caveat-box strong { color: var(--orange); }
+
 .pipeline-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -553,7 +592,7 @@ body {
 .pathway-name { width: 180px; text-align: right; color: var(--text-secondary); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pathway-bar-wrap { flex: 1; height: 16px; background: rgba(100,100,120,0.1); border-radius: 3px; overflow: hidden; position: relative; }
 .pathway-bar { height: 100%; border-radius: 3px; transition: width 1.5s ease; }
-.pathway-pval { width: 70px; font-family: var(--mono); font-size: 10px; color: var(--text-muted); }
+.pathway-dir { width: 80px; font-size: 10px; color: var(--text-muted); font-family: var(--mono); }
 
 .modal-overlay {
   position: fixed; top: 0; left: 0; right: 0; bottom: 0;
@@ -676,15 +715,15 @@ body {
           <span class="sidebar-icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
           </span>
-          <span>Msh2&#8315;&#47;&#8315; vs WT &mdash; DE</span>
+          <span>Msh2-KO ISC mRNA-seq</span>
           <div class="status-dot running"></div>
         </div>
         <div class="sidebar-item">
           <span class="sidebar-icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
           </span>
-          <span>Msh2&#8315;&#47;&#8315; ATAC peaks</span>
-          <div class="status-dot complete"></div>
+          <span>GSE183747 Reanalysis</span>
+          <div class="status-dot running"></div>
         </div>
       </div>
 
@@ -694,25 +733,25 @@ body {
           <span class="sidebar-icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
           </span>
-          <span>Colon organoid scRNA</span>
+          <span>SPP1/LGR5 IHC</span>
         </div>
         <div class="sidebar-item">
           <span class="sidebar-icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
           </span>
-          <span>16S microbiota composition</span>
+          <span>Microbiota &amp; CRC (Tosti 2022)</span>
         </div>
         <div class="sidebar-item">
           <span class="sidebar-icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 18 9 12 13 16 21 6"/></svg>
           </span>
-          <span>Exo1 variant survival</span>
+          <span>Exo1-D173A (Wang 2022)</span>
         </div>
         <div class="sidebar-item">
           <span class="sidebar-icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 6h8M6 8v8M18 8v8"/></svg>
           </span>
-          <span>TGFBR2 pathway enrichment</span>
+          <span>LS vs FAP polyps (GSE106500)</span>
         </div>
       </div>
 
@@ -722,13 +761,13 @@ body {
           <span class="sidebar-icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
           </span>
-          <span>ISC plasticity markers</span>
+          <span>48-gene MMRd ISC signature</span>
         </div>
         <div class="sidebar-item">
           <span class="sidebar-icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
           </span>
-          <span>MMR panel &mdash; grant figure</span>
+          <span>Cancer Prev Res figures (2023)</span>
         </div>
       </div>
     </div>
@@ -755,7 +794,7 @@ body {
         <div class="avatar ns">NS</div>
         <div class="member-info">
           <div class="member-name">Dr. Nityanand Srivastava</div>
-          <div class="member-role">Sr. Staff Scientist</div>
+          <div class="member-role">Staff Scientist</div>
         </div>
       </div>
       <div class="stack-line">
@@ -766,7 +805,7 @@ body {
 
   <main class="main">
     <div class="topbar">
-      <div class="topbar-title" id="topbar-title">Msh2&#8315;&#47;&#8315; vs WT colon epithelium &mdash; differential expression</div>
+      <div class="topbar-title" id="topbar-title">Msh2-KO vs Msh2-WT Lgr5&#43; ISC &mdash; differential expression</div>
       <span class="topbar-tag rnaseq">RNA-seq</span>
       <span class="topbar-tag running" id="status-tag">Cross-ref running</span>
       <div class="topbar-actions">
@@ -785,63 +824,64 @@ body {
         <h2>Welcome back, Dr. Edelmann.</h2>
         <p class="wel-sub">Connect your sequencing data or describe the experiment. Novaflow handles the pipeline, the figures, and the methods write-up.</p>
         <div class="wel-chips">
-          <div class="hint-chip" onclick="loadRNAseq()">Run DESeq2 on Msh2 KO RNA-seq</div>
-          <div class="hint-chip">Analyze colon organoid scRNA</div>
-          <div class="hint-chip">16S microbiota composition</div>
+          <div class="hint-chip" onclick="loadRNAseq()">Run DESeq2 on Msh2-KO Lgr5+ ISC</div>
+          <div class="hint-chip">Reanalyze GSE183747 arrays</div>
+          <div class="hint-chip">SPP1 IHC co-localization</div>
           <div class="hint-chip">Pathway enrichment from gene list</div>
         </div>
       </div>
 
       <div id="demo-chat">
 
+        <!-- Exchange 1: WE asks for DE analysis -->
         <div class="msg user fade-in">
           <div class="msg-avatar">WE</div>
           <div class="msg-content">
-            <p>Loaded our <strong>Msh2&#8315;&#47;&#8315; vs WT colon epithelium</strong> counts &mdash; six samples, three per condition, mm39. Run a DE pass and pull the MMR and Wnt hits.</p>
+            <p>Run DE on our <strong>Msh2-KO vs Msh2-WT Lgr5&#43; ISC</strong> mRNA-seq from <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE153385" target="_blank" rel="noopener">GSE153385</a> &mdash; 18 samples, 9 Lgr5&#43; / 9 Lgr5&minus;, Illumina HiSeq4000. Show me the MMRd ISC signature and pathway enrichment.</p>
           </div>
         </div>
 
         <div class="msg ai fade-in" style="animation-delay: 0.3s;">
           <div class="msg-avatar"><img src="assets/logo-icon.png" alt=""></div>
-          <div class="msg-content" style="max-width:700px;">
-            <p>Pulled <code>msh2ko_colon_counts.tsv</code> (6 samples &times; 28,704 genes, GENCODE vM34). Running:</p>
+          <div class="msg-content" style="max-width:720px;">
+            <p>Loaded <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE153385" target="_blank" rel="noopener">GSE153385</a> &mdash; 18 samples (9 Lgr5&#43;, 9 Lgr5&minus;), Illumina HiSeq4000. Running DESeq2 on the Lgr5&#43; fraction: Msh2-KO vs Msh2-WT.</p>
 
             <div class="pipeline-card">
               <div class="pipeline-header">
                 <div class="pipeline-title">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                  RNA-seq differential expression
+                  Lgr5&#43; ISC differential expression
                 </div>
                 <span class="pipeline-status complete">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                  Complete &middot; 2m 47s
+                  Complete &middot; 2m 12s
                 </span>
               </div>
               <div class="pipeline-steps">
                 <div class="p-step">
                   <div class="p-step-icon done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <span class="p-step-label done">Adapter &amp; quality trim &mdash; fastp 0.23.4</span>
-                  <span class="p-step-time">12s</span>
+                  <span class="p-step-label done">GEO fetch &amp; quality trim &mdash; fastp 0.23.4</span>
+                  <span class="p-step-time">18s</span>
                 </div>
                 <div class="p-step">
                   <div class="p-step-icon done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <span class="p-step-label done">STAR 2.7.11b alignment &mdash; mm39</span>
-                  <span class="p-step-time">1m 48s</span>
+                  <span class="p-step-label done">STAR 2.7.11b alignment &mdash; mm10</span>
+                  <span class="p-step-time">1m 22s</span>
                 </div>
                 <div class="p-step">
                   <div class="p-step-icon done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <span class="p-step-label done">featureCounts &mdash; GENCODE vM34</span>
-                  <span class="p-step-time">24s</span>
+                  <span class="p-step-label done">featureCounts &mdash; GENCODE vM25</span>
+                  <span class="p-step-time">14s</span>
                 </div>
                 <div class="p-step">
                   <div class="p-step-icon done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <span class="p-step-label done">DESeq2 v1.42 &mdash; Wald test, apeglm shrinkage</span>
-                  <span class="p-step-time">8s</span>
+                  <span class="p-step-label done">DESeq2 &mdash; Wald test, FDR &le; 0.05, |log&#8322;FC| &ge; 1</span>
+                  <span class="p-step-time">9s</span>
                 </div>
                 <div class="p-step">
                   <div class="p-step-icon done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <span class="p-step-label done">GSEA &mdash; clusterProfiler, MSigDB H + KEGG</span>
-                  <span class="p-step-time">15s</span>
+                  <span class="p-step-label done">GSEA &mdash; fgsea, MSigDB Hallmark + KEGG</span>
+                  <span class="p-step-time">9s</span>
                 </div>
               </div>
             </div>
@@ -851,7 +891,18 @@ body {
               Processed in your Einstein VPC. No data leaves the institutional boundary.
             </div>
 
-            <p style="margin-top:12px;"><strong>1,247 DEGs</strong> at |log&#8322;FC| &gt; 1, padj &lt; 0.05 &mdash; 684 up, 563 down in Msh2&#8315;&#47;&#8315;.</p>
+            <p style="margin-top:12px;"><strong>340 DEGs</strong> at FDR &le; 0.05, |log&#8322;FC| &ge; 1 &mdash; <strong>284 upregulated</strong>, <strong>56 downregulated</strong> in Msh2-KO Lgr5&#43; ISC. Of these, <strong>48 genes</strong> form a unique MMRd ISC signature (present only in KO Lgr5&#43; fraction).</p>
+
+            <div style="margin:8px 0;">
+              <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE153385" target="_blank" rel="noopener" class="source-badge geo">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9"/></svg>
+                GSE153385
+              </a>
+              <a href="https://pubmed.ncbi.nlm.nih.gov/34003775/" target="_blank" rel="noopener" class="source-badge pubmed">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+                PMID 34003775
+              </a>
+            </div>
 
             <div class="results-grid">
               <div class="result-card" onclick="openModal('volcano')">
@@ -860,7 +911,7 @@ body {
                 </div>
                 <div class="result-card-body">
                   <div class="result-card-title">Volcano</div>
-                  <div class="result-card-desc">Msh2&#8315;&#47;&#8315; vs WT &mdash; MMR &amp; Wnt labeled</div>
+                  <div class="result-card-desc">Msh2-KO vs WT Lgr5&#43; ISC &mdash; 340 DEGs</div>
                 </div>
               </div>
 
@@ -869,65 +920,87 @@ body {
                   <div class="heatmap-grid" id="heatmap-mini"></div>
                 </div>
                 <div class="result-card-body">
-                  <div class="result-card-title">Top 50 DEGs</div>
-                  <div class="result-card-desc">Z-scored, Ward linkage</div>
+                  <div class="result-card-title">MMRd ISC signature</div>
+                  <div class="result-card-desc">48 genes &mdash; Z-scored, Ward linkage</div>
                 </div>
               </div>
             </div>
 
-            <p>Top hits in DNA repair &amp; Wnt:</p>
+            <p>Top hits from the <strong>48-gene MMRd ISC signature</strong> (Table 2, unique to Lgr5&#43; KO):</p>
 
+            <div class="table-caption">Table 2 &mdash; MMRd ISC signature genes, Bommi, Tosti, Edelmann, Vilar et al. <em>Cancer Res</em> 81(10):2760&ndash;2773, 2021.</div>
             <div style="overflow-x:auto;">
               <table class="gene-table">
                 <thead>
-                  <tr><th>Gene</th><th>log&#8322;FC</th><th>padj</th><th>Pathway</th><th>Note</th></tr>
+                  <tr><th>Gene</th><th>log&#8322;FC</th><th>Fold change</th><th>Note</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td class="gene-name">Axin2</td><td class="fc-up">+3.42</td><td class="pval">2.1&times;10&#8315;&#185;&#8312;</td><td>Wnt / &beta;-catenin</td><td>ISC expansion marker</td></tr>
-                  <tr><td class="gene-name">Lgr5</td><td class="fc-up">+2.87</td><td class="pval">8.4&times;10&#8315;&#185;&#8309;</td><td>Wnt / stem cell</td><td>Intestinal stem cell</td></tr>
-                  <tr><td class="gene-name">Mlh1</td><td class="fc-down">&minus;1.94</td><td class="pval">5.6&times;10&#8315;&#185;&#178;</td><td>DNA MMR</td><td>Co-regulated with Msh2</td></tr>
-                  <tr><td class="gene-name">Pms2</td><td class="fc-down">&minus;1.61</td><td class="pval">3.2&times;10&#8315;&#8313;</td><td>DNA MMR</td><td>MutL&alpha; complex</td></tr>
-                  <tr><td class="gene-name">Myc</td><td class="fc-up">+2.15</td><td class="pval">1.8&times;10&#8315;&#185;&#185;</td><td>Wnt target</td><td>Proto-oncogene</td></tr>
-                  <tr><td class="gene-name">Exo1</td><td class="fc-up">+1.73</td><td class="pval">7.1&times;10&#8315;&#8312;</td><td>DNA repair</td><td>Compensatory upregulation</td></tr>
-                  <tr><td class="gene-name">Msh6</td><td class="fc-down">&minus;1.38</td><td class="pval">4.5&times;10&#8315;&#8311;</td><td>DNA MMR</td><td>MutS&alpha; partner destabilized</td></tr>
-                  <tr><td class="gene-name">Notch1</td><td class="fc-up">+1.92</td><td class="pval">9.3&times;10&#8315;&#185;&#8304;</td><td>Notch / ISC</td><td>Stem cell niche signal</td></tr>
+                  <tr><td class="gene-name">Mup22</td><td class="fc-up">+4.78</td><td class="fc-up">27.55&times;</td><td>Top upregulated in KO ISC</td></tr>
+                  <tr><td class="gene-name">Spp1</td><td class="fc-up">+4.27</td><td class="fc-up">19.34&times;</td><td>Detected only in KO by proteomics; ISC biomarker</td></tr>
+                  <tr><td class="gene-name">Slc26a9</td><td class="fc-up">+3.56</td><td class="fc-up">11.83&times;</td><td>Chloride transporter</td></tr>
+                  <tr><td class="gene-name">Muc6</td><td class="fc-up">+3.39</td><td class="fc-up">10.52&times;</td><td>Gastric mucin &mdash; aberrant expression</td></tr>
+                  <tr><td class="gene-name">Ugt8a</td><td class="fc-up">+3.39</td><td class="fc-up">10.46&times;</td><td>Galactosyltransferase</td></tr>
+                  <tr><td class="gene-name">Cubn</td><td class="fc-up">+3.03</td><td class="fc-up">8.14&times;</td><td>Receptor for intrinsic factor</td></tr>
+                  <tr><td class="gene-name">Pgc</td><td class="fc-up">+2.95</td><td class="fc-up">7.72&times;</td><td>Pepsinogen C</td></tr>
+                  <tr><td class="gene-name">Aqp5</td><td class="fc-up">+2.89</td><td class="fc-up">7.41&times;</td><td>Water channel</td></tr>
+                  <tr><td class="gene-name">Car1</td><td class="fc-up">+2.32</td><td class="fc-up">4.99&times;</td><td>Also 21&times; at protein level</td></tr>
+                  <tr><td class="gene-name">Aldh1a1</td><td class="fc-up">+1.80</td><td class="fc-up">3.48&times;</td><td>Colonic stem cell marker</td></tr>
+                  <tr><td class="gene-name">Ifit1</td><td class="fc-up">+1.31</td><td class="fc-up">2.47&times;</td><td>Interferon-induced</td></tr>
                 </tbody>
               </table>
             </div>
 
-            <p>KEGG &amp; GO enrichment:</p>
+            <p style="margin-top:8px;">Stem cell markers lost in KO (qRT-PCR validated, Fig 2D):</p>
+            <div style="overflow-x:auto;">
+              <table class="gene-table">
+                <thead>
+                  <tr><th>Gene</th><th>Direction</th><th>Validation</th><th>Note</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="gene-name">Lgr5</td><td class="fc-down">&darr;</td><td>qRT-PCR</td><td>ISC marker &mdash; loss of stemness</td></tr>
+                  <tr><td class="gene-name">Ascl2</td><td class="fc-down">&darr;</td><td>qRT-PCR</td><td>Wnt target / ISC transcription factor</td></tr>
+                  <tr><td class="gene-name">Olfm4</td><td class="fc-down">&darr;</td><td>qRT-PCR</td><td>ISC marker</td></tr>
+                  <tr><td class="gene-name">Krt20</td><td class="fc-up">&uarr;</td><td>qRT-PCR</td><td>Enterocyte marker &mdash; premature differentiation</td></tr>
+                  <tr><td class="gene-name">Alpi</td><td class="fc-up">&uarr;</td><td>qRT-PCR</td><td>Enterocyte marker &mdash; premature differentiation</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p style="margin-top:12px;">Pathway enrichment (Fig 3A, GSEA):</p>
 
             <div class="pathway-bars" id="pathway-bars">
-              <div class="pathway-row"><div class="pathway-name">DNA mismatch repair</div><div class="pathway-bar-wrap"><div class="pathway-bar" style="width:0%;background:linear-gradient(90deg,#f87171,#ef4444);" data-width="95%"></div></div><div class="pathway-pval">2.3&times;10&#8315;&#178;&#185;</div></div>
-              <div class="pathway-row"><div class="pathway-name">Wnt signaling</div><div class="pathway-bar-wrap"><div class="pathway-bar" style="width:0%;background:linear-gradient(90deg,#fb923c,#f97316);" data-width="88%"></div></div><div class="pathway-pval">5.1&times;10&#8315;&#185;&#8310;</div></div>
-              <div class="pathway-row"><div class="pathway-name">Colorectal cancer (KEGG)</div><div class="pathway-bar-wrap"><div class="pathway-bar" style="width:0%;background:linear-gradient(90deg,#facc15,#eab308);" data-width="79%"></div></div><div class="pathway-pval">1.7&times;10&#8315;&#185;&#179;</div></div>
-              <div class="pathway-row"><div class="pathway-name">Cell cycle regulation</div><div class="pathway-bar-wrap"><div class="pathway-bar" style="width:0%;background:linear-gradient(90deg,#4ade80,#22c55e);" data-width="72%"></div></div><div class="pathway-pval">8.9&times;10&#8315;&#185;&#185;</div></div>
-              <div class="pathway-row"><div class="pathway-name">Stem cell pluripotency</div><div class="pathway-bar-wrap"><div class="pathway-bar" style="width:0%;background:linear-gradient(90deg,#60a5fa,#3b82f6);" data-width="65%"></div></div><div class="pathway-pval">3.4&times;10&#8315;&#8313;</div></div>
-              <div class="pathway-row"><div class="pathway-name">p53 signaling</div><div class="pathway-bar-wrap"><div class="pathway-bar" style="width:0%;background:linear-gradient(90deg,#c084fc,#a855f7);" data-width="58%"></div></div><div class="pathway-pval">6.2&times;10&#8315;&#8311;</div></div>
+              <div class="pathway-row"><div class="pathway-name">Integrin Signaling</div><div class="pathway-bar-wrap"><div class="pathway-bar" style="width:0%;background:linear-gradient(90deg,#f87171,#ef4444);" data-width="88%"></div></div><div class="pathway-dir" style="color:var(--red);">Enriched &uarr;</div></div>
+              <div class="pathway-row"><div class="pathway-name">Focal Adhesion</div><div class="pathway-bar-wrap"><div class="pathway-bar" style="width:0%;background:linear-gradient(90deg,#fb923c,#f97316);" data-width="82%"></div></div><div class="pathway-dir" style="color:var(--orange);">Enriched &uarr;</div></div>
+              <div class="pathway-row"><div class="pathway-name">Inflammatory Response</div><div class="pathway-bar-wrap"><div class="pathway-bar" style="width:0%;background:linear-gradient(90deg,#facc15,#eab308);" data-width="76%"></div></div><div class="pathway-dir" style="color:var(--yellow);">Enriched &uarr;</div></div>
+              <div class="pathway-row"><div class="pathway-name">Epithelial Signaling</div><div class="pathway-bar-wrap"><div class="pathway-bar" style="width:0%;background:linear-gradient(90deg,#4ade80,#22c55e);" data-width="70%"></div></div><div class="pathway-dir" style="color:var(--green);">Enriched &uarr;</div></div>
+              <div class="pathway-row"><div class="pathway-name">Wnt Signaling</div><div class="pathway-bar-wrap"><div class="pathway-bar" style="width:0%;background:linear-gradient(90deg,#60a5fa,#3b82f6);" data-width="75%"></div></div><div class="pathway-dir" style="color:var(--blue);">Depleted &darr;</div></div>
+              <div class="pathway-row"><div class="pathway-name">Cytoplasmic Ribosomes</div><div class="pathway-bar-wrap"><div class="pathway-bar" style="width:0%;background:linear-gradient(90deg,#c084fc,#a855f7);" data-width="60%"></div></div><div class="pathway-dir" style="color:var(--accent);">Depleted &darr;</div></div>
             </div>
 
-            <p style="margin-top:10px;">The MMR / Wnt / ISC signature is consistent with the model you and Elena published in CMGH.</p>
+            <p style="margin-top:10px;">Key finding: <strong>Wnt signaling is depleted</strong> in Msh2-KO ISC &mdash; this distinguishes MMR-deficient (Lynch syndrome) from APC-driven (FAP) tumorigenesis. Consistent with the loss of Lgr5/Ascl2/Olfm4 above.</p>
 
             <div class="ref">
-              Tosti E, Almeida AS, Tran TTT, et al, Edelmann W. <strong>Loss of MMR and TGFBR2 Increases the Susceptibility to Microbiota-Dependent Inflammation-Associated Colon Cancer.</strong> <em>Cell Mol Gastroenterol Hepatol.</em> 2022;14(3):693&ndash;717.
-              <a href="https://pubmed.ncbi.nlm.nih.gov/35688320/" target="_blank" rel="noopener">PMID 35688320</a>
+              Bommi PV, Bowen CM, Tosti E, &hellip; Edelmann W, Vilar E. <strong>The Transcriptomic Landscape of Mismatch Repair&ndash;Deficient Intestinal Stem Cells.</strong> <em>Cancer Res.</em> 2021;81(10):2760&ndash;2773.
+              <a href="https://pubmed.ncbi.nlm.nih.gov/34003775/" target="_blank" rel="noopener">PMID 34003775</a> &middot;
+              <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8318201/" target="_blank" rel="noopener">PMC8318201</a>
             </div>
 
-            <p>Want me to overlay this against the Lgr5&#43; organoid scRNA-seq for an ISC-expansion check?</p>
+            <p>Want me to cross-reference with the dose-dependent genes from HET mice, or overlay with <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE183747" target="_blank" rel="noopener">GSE183747</a> tumor arrays?</p>
           </div>
         </div>
 
+        <!-- Exchange 2: ET asks for cross-reference -->
         <div class="msg user et-msg fade-in" style="animation-delay:0.6s;">
           <div class="msg-avatar">ET</div>
           <div class="msg-content">
-            <p>Yes &mdash; cross-reference the upregulated Wnt targets against the <strong>Lgr5&#43; ISC signature</strong> from our organoid set. I want to see if the same expansion program is driving the Msh2 KO tumors.</p>
+            <p>Yes &mdash; pull up the <strong>Table 1 dose-dependent genes</strong> shared between HET and KO, and cross-reference the upregulated signature against <strong>GSE183747</strong> colon tumor arrays. I want to see which ISC signature genes persist in full tumors.</p>
           </div>
         </div>
 
         <div class="msg ai fade-in" style="animation-delay:0.9s;">
           <div class="msg-avatar"><img src="assets/logo-icon.png" alt=""></div>
-          <div class="msg-content" style="max-width:700px;">
-            <p>Pulling the Lgr5-GFP&#43; organoid scRNA-seq from your shared workspace.</p>
+          <div class="msg-content" style="max-width:720px;">
+            <p>Pulling Table 1 dose-dependent genes and queuing the <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE183747" target="_blank" rel="noopener">GSE183747</a> cross-reference (12 Affymetrix arrays, submitted by Elena Tosti).</p>
 
             <div class="pipeline-card">
               <div class="pipeline-header">
@@ -940,31 +1013,111 @@ body {
               <div class="pipeline-steps">
                 <div class="p-step">
                   <div class="p-step-icon done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <span class="p-step-label done">Loaded Lgr5&#43; ISC signature (312 genes)</span>
-                  <span class="p-step-time">2s</span>
+                  <span class="p-step-label done">Loaded Table 1: 20 dose-dependent genes (HET &amp; KO shared)</span>
+                  <span class="p-step-time">1s</span>
                 </div>
                 <div class="p-step">
                   <div class="p-step-icon done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <span class="p-step-label done">Intersected with Msh2 KO upregulated DEGs</span>
-                  <span class="p-step-time">1s</span>
+                  <span class="p-step-label done">Fetched GSE183747 &mdash; 12 Affymetrix colon tumor arrays</span>
+                  <span class="p-step-time">4s</span>
                 </div>
                 <div class="p-step">
                   <div class="p-step-icon active">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
                   </div>
-                  <span class="p-step-label">Hypergeometric enrichment&hellip;</span>
+                  <span class="p-step-label">Intersecting ISC signature with tumor expression&hellip;</span>
+                  <span class="p-step-time">&mdash;</span>
+                </div>
+                <div class="p-step">
+                  <div class="p-step-icon pending">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>
+                  </div>
+                  <span class="p-step-label">Hypergeometric enrichment test&hellip;</span>
                   <span class="p-step-time">&mdash;</span>
                 </div>
               </div>
             </div>
 
-            <p><strong>87 of 312</strong> Lgr5&#43; ISC signature genes overlap with Msh2&#8315;&#47;&#8315; upregulated DEGs (hypergeometric p &equiv; 3.1&times;10&#8315;&#178;&#8308;). Msh2 loss is activating the same stem-cell program you mapped in the organoid model.</p>
+            <p>Here are the <strong>20 dose-dependent genes</strong> shared between Msh2-HET and Msh2-KO (Table 1). These show a progressive fold-change increase from heterozygous to full knockout:</p>
 
-            <p>Key overlapping genes: <code>Lgr5</code>, <code>Ascl2</code>, <code>Olfm4</code>, <code>Axin2</code>, <code>Sox9</code>, <code>Myc</code>, <code>Cd44</code>, <code>Ephb2</code>.</p>
+            <div style="margin:8px 0;">
+              <a href="https://pubmed.ncbi.nlm.nih.gov/34003775/" target="_blank" rel="noopener" class="source-badge pubmed">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+                PMID 34003775
+              </a>
+              <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE183747" target="_blank" rel="noopener" class="source-badge geo">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9"/></svg>
+                GSE183747
+              </a>
+            </div>
 
-            <p>Want me to draft a figure panel for the grant report, or pull in the Tgfbr2 double-KO comparison?</p>
+            <div class="table-caption">Table 1 &mdash; Dose-dependent DEGs shared between Msh2-HET and Msh2-KO Lgr5&#43; ISC. Bommi et al. <em>Cancer Res</em> 2021.</div>
+            <div style="overflow-x:auto;">
+              <table class="gene-table">
+                <thead>
+                  <tr><th>Gene</th><th>HET FC</th><th>KO FC</th><th>Pattern</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="gene-name">Spp1</td><td class="fc-up">6.02&times;</td><td class="fc-up">19.34&times;</td><td>Dose-dependent &uarr;&uarr;</td></tr>
+                  <tr><td class="gene-name">Nr1h5</td><td class="fc-up">4.86&times;</td><td class="fc-up">8.55&times;</td><td>Dose-dependent &uarr;&uarr;</td></tr>
+                  <tr><td class="gene-name">Rian</td><td class="fc-up">3.73&times;</td><td class="fc-up">4.72&times;</td><td>Dose-dependent &uarr;&uarr;</td></tr>
+                  <tr><td class="gene-name">Jchain</td><td class="fc-up">3.68&times;</td><td class="fc-up">3.76&times;</td><td>Dose-dependent &uarr;</td></tr>
+                  <tr><td class="gene-name">Meg3</td><td class="fc-up">3.52&times;</td><td class="fc-up">4.31&times;</td><td>Dose-dependent &uarr;&uarr;</td></tr>
+                  <tr><td class="gene-name">Gm28230</td><td class="fc-up">3.52&times;</td><td class="fc-up">5.40&times;</td><td>Dose-dependent &uarr;&uarr;</td></tr>
+                  <tr><td class="gene-name">Dgkh</td><td class="fc-up">3.05&times;</td><td class="fc-up">3.91&times;</td><td>Dose-dependent &uarr;&uarr;</td></tr>
+                  <tr><td class="gene-name">Arhgap45</td><td class="fc-up">2.94&times;</td><td class="fc-up">3.59&times;</td><td>Dose-dependent &uarr;&uarr;</td></tr>
+                  <tr><td class="gene-name">Trpv3</td><td class="fc-up">2.94&times;</td><td class="fc-up">2.77&times;</td><td>Shared &uarr;</td></tr>
+                  <tr><td class="gene-name">P2ry4</td><td class="fc-up">2.61&times;</td><td class="fc-up">3.04&times;</td><td>Dose-dependent &uarr;&uarr;</td></tr>
+                  <tr><td class="gene-name">Ccn3</td><td class="fc-up">2.56&times;</td><td class="fc-up">2.61&times;</td><td>Shared &uarr;</td></tr>
+                  <tr><td class="gene-name">B230206H07Rik</td><td class="fc-up">2.52&times;</td><td class="fc-up">4.20&times;</td><td>Dose-dependent &uarr;&uarr;</td></tr>
+                  <tr><td class="gene-name">Tchh</td><td class="fc-up">2.44&times;</td><td class="fc-up">3.44&times;</td><td>Dose-dependent &uarr;&uarr;</td></tr>
+                  <tr><td class="gene-name">Lifr</td><td class="fc-up">2.35&times;</td><td class="fc-up">2.07&times;</td><td>Shared &uarr;</td></tr>
+                  <tr><td class="gene-name">Ahnak</td><td class="fc-up">2.29&times;</td><td class="fc-up">3.75&times;</td><td>Dose-dependent &uarr;&uarr;</td></tr>
+                  <tr><td class="gene-name">Sardh</td><td class="fc-up">2.24&times;</td><td class="fc-up">3.53&times;</td><td>Dose-dependent &uarr;&uarr;</td></tr>
+                  <tr><td class="gene-name">Cacna1h</td><td class="fc-up">2.20&times;</td><td class="fc-up">2.37&times;</td><td>Dose-dependent &uarr;&uarr;</td></tr>
+                  <tr><td class="gene-name">Sned1</td><td class="fc-up">2.20&times;</td><td class="fc-up">2.31&times;</td><td>Shared &uarr;</td></tr>
+                  <tr><td class="gene-name">Nlrp9b</td><td class="fc-up">2.04&times;</td><td class="fc-up">4.67&times;</td><td>Dose-dependent &uarr;&uarr;</td></tr>
+                  <tr><td class="gene-name">Gm23547</td><td class="fc-down">0.36&times;</td><td class="fc-down">0.36&times;</td><td>Only shared &darr; gene</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p style="margin-top:10px;"><code>Spp1</code> stands out: 6&times; in HET &rarr; 19.3&times; in KO, detected only in Lgr5&#43; fraction by mass spec, and co-localizes with LGR5 in Lynch syndrome patient crypts by IHC (Fig 5). Top candidate ISC-specific biomarker.</p>
+
+            <div class="caveat-box">
+              <strong>&#9888; Note on GSE183747 cross-reference:</strong> The intersection of the 48-gene ISC signature with GSE183747 colon tumor arrays is a <strong>novel / unpublished analysis</strong>. The published study (Bommi et al. 2021) validated 41 of 197 broader signature genes against human Lynch syndrome vs FAP patients using <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE106500" target="_blank" rel="noopener" style="color:var(--orange);">GSE106500</a>, but did not cross-reference with GSE183747 tumor arrays. This pipeline is still running &mdash; results should be treated as exploratory until validated.
+            </div>
+
+            <div class="ref">
+              Tosti E, Almeida AS, Tran TTT, et al, Edelmann W. <strong>Loss of MMR and TGFBR2 Increases the Susceptibility to Microbiota-Dependent Inflammation-Associated Colon Cancer.</strong> <em>Cell Mol Gastroenterol Hepatol.</em> 2022;14(3):693&ndash;717.
+              <a href="https://pubmed.ncbi.nlm.nih.gov/35688320/" target="_blank" rel="noopener">PMID 35688320</a>
+            </div>
+
+            <p>Shall I prioritize the GSE183747 overlap once the pipeline completes, or switch to the Tgfbr2 double-KO comparison?</p>
           </div>
         </div>
+
+        <!-- Exchange 3: Brief closing -->
+        <div class="msg user fade-in" style="animation-delay:1.2s;">
+          <div class="msg-avatar">WE</div>
+          <div class="msg-content">
+            <p>Good &mdash; let the GSE183747 pipeline finish. Flag <code>Spp1</code> and <code>Car1</code> for the grant figures. We&rsquo;ll revisit once the tumor array cross-ref completes.</p>
+          </div>
+        </div>
+
+        <div class="msg ai fade-in" style="animation-delay:1.5s;">
+          <div class="msg-avatar"><img src="assets/logo-icon.png" alt=""></div>
+          <div class="msg-content" style="max-width:700px;">
+            <p>Flagged <code>Spp1</code> (19.3&times; KO, 6.0&times; HET, proteomics-validated, IHC co-localization with LGR5) and <code>Car1</code> (5.0&times; RNA, 21&times; protein) for grant figures. Both are in the 48-gene MMRd ISC signature.</p>
+            <p>The GSE183747 cross-reference pipeline is running &mdash; I&rsquo;ll notify you and Elena when it completes. Meanwhile, the Table 1 and Table 2 results with pathway enrichment are ready to export.</p>
+
+            <div class="ref">
+              Tosti E, Srivastava N, Edelmann W. <strong>Cancer Prevention in Lynch Syndrome.</strong> <em>Cancer Prev Res.</em> 2023;16(8):429&ndash;438.
+              <a href="https://pubmed.ncbi.nlm.nih.gov/37012205/" target="_blank" rel="noopener">PMID 37012205</a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -976,10 +1129,10 @@ body {
         </button>
       </div>
       <div class="input-hints">
-        <div class="hint-chip" onclick="setInput('Label MMR genes on the volcano')">Label MMR on volcano</div>
-        <div class="hint-chip" onclick="setInput('Compare Msh2 KO vs Exo1 D173A profiles')">Compare with Exo1 D173A</div>
+        <div class="hint-chip" onclick="setInput('Show SPP1 IHC co-localization with LGR5')">SPP1/LGR5 IHC</div>
+        <div class="hint-chip" onclick="setInput('Compare with Exo1-D173A from Wang 2022')">Compare with Exo1-D173A</div>
         <div class="hint-chip" onclick="setInput('Run GSEA against MSigDB hallmark sets')">Hallmark GSEA</div>
-        <div class="hint-chip" onclick="setInput('Export figures and methods for CMGH submission')">Export for publication</div>
+        <div class="hint-chip" onclick="setInput('Export Table 2 figures for Cancer Prev Res submission')">Export for publication</div>
       </div>
     </div>
   </main>
@@ -995,6 +1148,7 @@ body {
 </div>
 
 <script>
+/* ── Seeded PRNG ── */
 function mulberry32(seed) {
   return function() {
     seed |= 0; seed = seed + 0x6D2B79F5 | 0;
@@ -1005,48 +1159,61 @@ function mulberry32(seed) {
   };
 }
 
+/* ── Volcano (mini) ── */
 function generateVolcano(svgId, seed) {
   const svg = document.getElementById(svgId);
   if (!svg) return;
   const rand = mulberry32(seed || 42);
   const rng = (a, b) => rand() * (b - a) + a;
   const w = 280, h = 160, pad = 30;
+  // x-axis: log2FC range ~ -5 to +5, center at w/2
+  // y-axis: -log10(padj), higher = more significant, top of chart
+  const xScale = (lfc) => pad + (w - pad - 10) * (lfc + 5) / 10;
+  const yScale = (nlp) => (h - pad) - (nlp / 12) * (h - pad - 10);
 
   let html = `
     <line x1="${pad}" y1="${h-pad}" x2="${w-10}" y2="${h-pad}" stroke="#333346" stroke-width="0.5"/>
     <line x1="${pad}" y1="10" x2="${pad}" y2="${h-pad}" stroke="#333346" stroke-width="0.5"/>
-    <line x1="${w/2}" y1="10" x2="${w/2}" y2="${h-pad}" stroke="#333346" stroke-width="0.3" stroke-dasharray="3,3"/>
-    <line x1="${pad}" y1="40" x2="${w-10}" y2="40" stroke="#333346" stroke-width="0.3" stroke-dasharray="3,3"/>
+    <line x1="${xScale(0)}" y1="10" x2="${xScale(0)}" y2="${h-pad}" stroke="#333346" stroke-width="0.3" stroke-dasharray="3,3"/>
     <text x="${w/2}" y="${h-10}" fill="#6b6b80" font-size="8" text-anchor="middle" font-family="Inter">log₂ fold change</text>
-    <text x="10" y="${h/2}" fill="#6b6b80" font-size="7" text-anchor="middle" transform="rotate(-90,10,${h/2})" font-family="Inter">−log₁₀(padj)</text>
+    <text x="10" y="${h/2}" fill="#6b6b80" font-size="7" text-anchor="middle" transform="rotate(-90,10,${h/2})" font-family="Inter">−log₁₀(FDR)</text>
   `;
 
-  for (let i = 0; i < 200; i++) {
-    html += `<circle cx="${rng(pad+5, w-15)}" cy="${rng(45, h-pad-5)}" r="${rng(1.2,2)}" fill="rgba(100,100,120,0.3)"/>`;
+  // Non-significant background dots
+  for (let i = 0; i < 180; i++) {
+    html += `<circle cx="${rng(pad+5, w-15)}" cy="${rng(50, h-pad-5)}" r="${rng(1.2,2)}" fill="rgba(100,100,120,0.3)"/>`;
   }
-  for (let i = 0; i < 60; i++) {
-    html += `<circle cx="${rng(w/2+20, w-15)}" cy="${rng(12, 50)}" r="${rng(1.5,2.8)}" fill="rgba(248,113,113,0.7)"/>`;
+  // Upregulated (right side, 284 genes represented)
+  for (let i = 0; i < 55; i++) {
+    html += `<circle cx="${rng(xScale(1), w-15)}" cy="${rng(12, 50)}" r="${rng(1.5,2.8)}" fill="rgba(248,113,113,0.7)"/>`;
   }
-  for (let i = 0; i < 45; i++) {
-    html += `<circle cx="${rng(pad+5, w/2-20)}" cy="${rng(12, 50)}" r="${rng(1.5,2.8)}" fill="rgba(96,165,250,0.7)"/>`;
+  // Downregulated (left side, 56 genes represented)
+  for (let i = 0; i < 18; i++) {
+    html += `<circle cx="${rng(pad+5, xScale(-1))}" cy="${rng(15, 55)}" r="${rng(1.5,2.5)}" fill="rgba(96,165,250,0.7)"/>`;
   }
 
+  // Real gene labels positioned by actual log2FC
   const labels = [
-    { name:'Axin2', x: w/2+55, y: 16, color:'#f87171' },
-    { name:'Lgr5',  x: w/2+35, y: 24, color:'#f87171' },
-    { name:'Mlh1',  x: w/2-50, y: 20, color:'#60a5fa' },
-    { name:'Exo1',  x: w/2+25, y: 32, color:'#f87171' },
-    { name:'Myc',   x: w/2+45, y: 26, color:'#f87171' },
-    { name:'Pms2',  x: w/2-40, y: 28, color:'#60a5fa' }
+    { name:'Spp1',    lfc: 4.27, nlp: 9, color:'#f87171' },
+    { name:'Mup22',   lfc: 4.78, nlp: 7.5, color:'#f87171' },
+    { name:'Car1',    lfc: 2.32, nlp: 6, color:'#f87171' },
+    { name:'Aldh1a1', lfc: 1.80, nlp: 5, color:'#f87171' },
+    { name:'Lgr5',    lfc:-1.5,  nlp: 4, color:'#60a5fa' },
+    { name:'Ascl2',   lfc:-2.0,  nlp: 3.5, color:'#60a5fa' },
+    { name:'Olfm4',   lfc:-1.8,  nlp: 3, color:'#60a5fa' }
   ];
   labels.forEach(g => {
-    html += `<circle cx="${g.x}" cy="${g.y}" r="3" fill="${g.color}" stroke="#fff" stroke-width="0.5"/>`;
-    html += `<text x="${g.x+5}" y="${g.y-4}" fill="${g.color}" font-size="7" font-family="JetBrains Mono" font-weight="500" font-style="italic">${g.name}</text>`;
+    const cx = xScale(g.lfc), cy = yScale(g.nlp);
+    html += `<circle cx="${cx}" cy="${cy}" r="3" fill="${g.color}" stroke="#fff" stroke-width="0.5"/>`;
+    const tx = g.lfc > 0 ? cx + 5 : cx - 5;
+    const anchor = g.lfc > 0 ? 'start' : 'end';
+    html += `<text x="${tx}" y="${cy-4}" fill="${g.color}" font-size="7" font-family="JetBrains Mono" font-weight="500" font-style="italic" text-anchor="${anchor}">${g.name}</text>`;
   });
 
   svg.innerHTML = html;
 }
 
+/* ── Heatmap (mini) ── */
 function generateHeatmap(containerId, seed) {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -1064,6 +1231,7 @@ function generateHeatmap(containerId, seed) {
   }
 }
 
+/* ── Animate pathway bars ── */
 function animatePathwayBars() {
   setTimeout(() => {
     document.querySelectorAll('.pathway-bar').forEach(bar => {
@@ -1072,88 +1240,114 @@ function animatePathwayBars() {
   }, 800);
 }
 
+/* ── Modal: Volcano (full) ── */
 function openModal(type) {
   const overlay = document.getElementById('modal-overlay');
   const content = document.getElementById('modal-content');
 
   if (type === 'volcano') {
     content.innerHTML = `
-      <h3 style="font-size:16px;font-weight:600;margin-bottom:4px;">Volcano &mdash; Msh2&#8315;&#47;&#8315; vs WT colon epithelium</h3>
-      <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">DESeq2 &middot; |log₂FC| &gt; 1, padj &lt; 0.05 &middot; 1,247 DEGs</p>
+      <h3 style="font-size:16px;font-weight:600;margin-bottom:4px;">Volcano &mdash; Msh2-KO vs Msh2-WT Lgr5&#43; ISC</h3>
+      <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">DESeq2 &middot; FDR &le; 0.05, |log&#8322;FC| &ge; 1 &middot; 340 DEGs (284 up, 56 down) &middot; <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE153385" target="_blank" style="color:var(--blue);">GSE153385</a></p>
       <div style="background:#0c0c14;border-radius:12px;padding:20px;text-align:center;">
         <svg width="600" height="340" viewBox="0 0 600 340" id="volcano-full"></svg>
       </div>
       <div style="display:flex;gap:20px;margin-top:14px;font-size:12px;">
-        <div style="display:flex;align-items:center;gap:6px;"><div style="width:10px;height:10px;border-radius:50%;background:#f87171;"></div> Upregulated (684)</div>
-        <div style="display:flex;align-items:center;gap:6px;"><div style="width:10px;height:10px;border-radius:50%;background:#60a5fa;"></div> Downregulated (563)</div>
+        <div style="display:flex;align-items:center;gap:6px;"><div style="width:10px;height:10px;border-radius:50%;background:#f87171;"></div> Upregulated (284)</div>
+        <div style="display:flex;align-items:center;gap:6px;"><div style="width:10px;height:10px;border-radius:50%;background:#60a5fa;"></div> Downregulated (56)</div>
         <div style="display:flex;align-items:center;gap:6px;"><div style="width:10px;height:10px;border-radius:50%;background:rgba(100,100,120,0.5);"></div> Non-significant</div>
-      </div>`;
+      </div>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:10px;">Source: Table 2 + Fig 2D, Bommi et al. <em>Cancer Res</em> 2021. PMID 34003775.</p>`;
     overlay.classList.add('active');
     generateVolcanoFull('volcano-full', 1337);
   } else if (type === 'heatmap') {
     content.innerHTML = `
-      <h3 style="font-size:16px;font-weight:600;margin-bottom:4px;">Top 50 DEGs &mdash; hierarchical clustering</h3>
-      <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">Z-score normalized &middot; Ward&rsquo;s method &middot; Euclidean distance</p>
+      <h3 style="font-size:16px;font-weight:600;margin-bottom:4px;">MMRd ISC signature &mdash; 48 genes</h3>
+      <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">Z-score normalized &middot; Ward&rsquo;s method &middot; Euclidean distance &middot; 9 Lgr5&#43; samples from GSE153385</p>
       <div style="background:#0c0c14;border-radius:12px;padding:20px;display:flex;align-items:center;justify-content:center;gap:18px;">
-        <div style="display:grid;grid-template-columns:repeat(6,28px);grid-template-rows:repeat(25,14px);gap:1px;" id="heatmap-full"></div>
+        <div style="display:grid;grid-template-columns:repeat(9,22px);grid-template-rows:repeat(24,12px);gap:1px;" id="heatmap-full"></div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
           <span style="font-size:10px;color:var(--text-muted);">High</span>
           <div style="width:14px;height:120px;background:linear-gradient(180deg,#b91c1c,#ef4444,#fbbf24,#60a5fa,#1e3a5f);border-radius:3px;"></div>
           <span style="font-size:10px;color:var(--text-muted);">Low</span>
         </div>
       </div>
-      <div style="margin-top:12px;font-size:11px;color:var(--text-muted);">Columns: WT&#8321;, WT&#8322;, WT&#8323;, Msh2&#8315;&#47;&#8315;&#8321;, Msh2&#8315;&#47;&#8315;&#8322;, Msh2&#8315;&#47;&#8315;&#8323;</div>`;
+      <div style="margin-top:12px;font-size:11px;color:var(--text-muted);">Columns: WT&#8321;, WT&#8322;, WT&#8323;, HET&#8321;, HET&#8322;, HET&#8323;, KO&#8321;, KO&#8322;, KO&#8323;</div>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:6px;">Source: Table 2, Bommi et al. <em>Cancer Res</em> 2021. 48 genes unique to Msh2-KO Lgr5&#43; ISC.</p>`;
     overlay.classList.add('active');
     generateHeatmapFull('heatmap-full', 99);
   }
 }
 
+/* ── Volcano (full size) ── */
 function generateVolcanoFull(id, seed) {
   const svg = document.getElementById(id);
   const rand = mulberry32(seed);
   const rng = (a, b) => rand() * (b - a) + a;
   const w = 600, h = 340, pad = 50;
+  const xScale = (lfc) => pad + (w - pad - 20) * (lfc + 6) / 12;
+  const yScale = (nlp) => (h - pad) - (nlp / 12) * (h - pad - 20);
 
   let html = `
     <line x1="${pad}" y1="${h-pad}" x2="${w-20}" y2="${h-pad}" stroke="#333346" stroke-width="0.8"/>
     <line x1="${pad}" y1="20" x2="${pad}" y2="${h-pad}" stroke="#333346" stroke-width="0.8"/>
-    <line x1="${w/2}" y1="20" x2="${w/2}" y2="${h-pad}" stroke="#333346" stroke-width="0.4" stroke-dasharray="4,4"/>
-    <line x1="${pad}" y1="80" x2="${w-20}" y2="80" stroke="#444" stroke-width="0.4" stroke-dasharray="4,4"/>
+    <line x1="${xScale(0)}" y1="20" x2="${xScale(0)}" y2="${h-pad}" stroke="#333346" stroke-width="0.4" stroke-dasharray="4,4"/>
+    <line x1="${xScale(-1)}" y1="20" x2="${xScale(-1)}" y2="${h-pad}" stroke="#444" stroke-width="0.3" stroke-dasharray="3,3"/>
+    <line x1="${xScale(1)}" y1="20" x2="${xScale(1)}" y2="${h-pad}" stroke="#444" stroke-width="0.3" stroke-dasharray="3,3"/>
     <text x="${w/2}" y="${h-12}" fill="#6b6b80" font-size="12" text-anchor="middle" font-family="Inter">log₂ fold change</text>
-    <text x="14" y="${h/2}" fill="#6b6b80" font-size="11" text-anchor="middle" transform="rotate(-90,14,${h/2})" font-family="Inter">−log₁₀(padj)</text>
+    <text x="14" y="${h/2}" fill="#6b6b80" font-size="11" text-anchor="middle" transform="rotate(-90,14,${h/2})" font-family="Inter">−log₁₀(FDR)</text>
   `;
 
-  for (let i = 0; i < 500; i++) {
-    html += `<circle cx="${rng(pad+5,w-25)}" cy="${rng(85,h-pad-5)}" r="${rng(2,3.5)}" fill="rgba(100,100,120,0.25)"/>`;
-  }
-  for (let i = 0; i < 150; i++) {
-    html += `<circle cx="${rng(w/2+30,w-25)}" cy="${rng(25,85)}" r="${rng(2,4)}" fill="rgba(248,113,113,0.6)"/>`;
-  }
-  for (let i = 0; i < 120; i++) {
-    html += `<circle cx="${rng(pad+5,w/2-30)}" cy="${rng(25,85)}" r="${rng(2,4)}" fill="rgba(96,165,250,0.6)"/>`;
+  // Axis tick labels
+  for (let v = -4; v <= 4; v += 2) {
+    html += `<text x="${xScale(v)}" y="${h-pad+14}" fill="#6b6b80" font-size="9" text-anchor="middle" font-family="Inter">${v}</text>`;
   }
 
+  // Non-significant
+  for (let i = 0; i < 450; i++) {
+    html += `<circle cx="${rng(pad+5,w-25)}" cy="${rng(100,h-pad-5)}" r="${rng(2,3.5)}" fill="rgba(100,100,120,0.25)"/>`;
+  }
+  // Upregulated (284)
+  for (let i = 0; i < 120; i++) {
+    html += `<circle cx="${rng(xScale(1),w-25)}" cy="${rng(25,100)}" r="${rng(2,4)}" fill="rgba(248,113,113,0.6)"/>`;
+  }
+  // Downregulated (56)
+  for (let i = 0; i < 40; i++) {
+    html += `<circle cx="${rng(pad+5,xScale(-1))}" cy="${rng(30,110)}" r="${rng(2,3.5)}" fill="rgba(96,165,250,0.6)"/>`;
+  }
+
+  // Real gene labels with actual log2FC values
   const labels = [
-    {name:'Axin2',x:w/2+100,y:30},{name:'Lgr5',x:w/2+70,y:42},{name:'Mlh1',x:w/2-80,y:34},
-    {name:'Exo1',x:w/2+50,y:54},{name:'Myc',x:w/2+90,y:46},{name:'Pms2',x:w/2-65,y:50},
-    {name:'Msh6',x:w/2-55,y:60},{name:'Notch1',x:w/2+60,y:58},{name:'Ascl2',x:w/2+80,y:36},
-    {name:'Sox9',x:w/2+40,y:62},{name:'Cd44',x:w/2+110,y:50}
+    { name:'Mup22',   lfc: 4.78, nlp: 9.5 },
+    { name:'Spp1',    lfc: 4.27, nlp: 10.5 },
+    { name:'Slc26a9', lfc: 3.56, nlp: 7.0 },
+    { name:'Muc6',    lfc: 3.39, nlp: 6.5 },
+    { name:'Car1',    lfc: 2.32, nlp: 8.0 },
+    { name:'Aldh1a1', lfc: 1.80, nlp: 5.5 },
+    { name:'Ifit1',   lfc: 1.31, nlp: 4.5 },
+    { name:'Lgr5',    lfc:-1.5,  nlp: 5.0 },
+    { name:'Ascl2',   lfc:-2.0,  nlp: 4.5 },
+    { name:'Olfm4',   lfc:-1.8,  nlp: 3.8 }
   ];
   labels.forEach(g => {
-    const c = g.x > w/2 ? '#f87171' : '#60a5fa';
-    html += `<circle cx="${g.x}" cy="${g.y}" r="4.5" fill="${c}" stroke="#fff" stroke-width="0.8"/>`;
-    html += `<text x="${g.x+7}" y="${g.y-5}" fill="${c}" font-size="10" font-family="JetBrains Mono" font-weight="500" font-style="italic">${g.name}</text>`;
+    const cx = xScale(g.lfc), cy = yScale(g.nlp);
+    const c = g.lfc > 0 ? '#f87171' : '#60a5fa';
+    html += `<circle cx="${cx}" cy="${cy}" r="4.5" fill="${c}" stroke="#fff" stroke-width="0.8"/>`;
+    const tx = g.lfc > 0 ? cx + 7 : cx - 7;
+    const anchor = g.lfc > 0 ? 'start' : 'end';
+    html += `<text x="${tx}" y="${cy-5}" fill="${c}" font-size="10" font-family="JetBrains Mono" font-weight="500" font-style="italic" text-anchor="${anchor}">${g.name}</text>`;
   });
 
   svg.innerHTML = html;
 }
 
+/* ── Heatmap (full) ── */
 function generateHeatmapFull(id, seed) {
   const el = document.getElementById(id);
   el.innerHTML = '';
   const rand = mulberry32(seed);
   const colors = ['#1e3a5f','#1e4d7a','#2563eb','#60a5fa','#93c5fd','#fde68a','#fbbf24','#f97316','#ef4444','#b91c1c'];
-  for (let i = 0; i < 150; i++) {
+  for (let i = 0; i < 216; i++) {
     const cell = document.createElement('div');
     cell.style.background = colors[Math.floor(rand()*colors.length)];
     cell.style.borderRadius = '1px';
@@ -1161,52 +1355,81 @@ function generateHeatmapFull(id, seed) {
   }
 }
 
+/* ── Close modal ── */
 function closeModal(e) {
   if (e.target === document.getElementById('modal-overlay')) {
     document.getElementById('modal-overlay').classList.remove('active');
   }
 }
 
+/* ── Notebook modal ── */
 function openNotebook() {
   const overlay = document.getElementById('modal-overlay');
   const content = document.getElementById('modal-content');
   content.innerHTML = `
     <h3 style="font-size:16px;font-weight:600;margin-bottom:4px;">Reproducible notebook</h3>
-    <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">Auto-generated from the pipeline run. Download as <code style="font-size:11px;background:rgba(168,85,247,0.1);color:var(--accent);padding:1px 6px;border-radius:4px;">.ipynb</code> or open in Colab.</p>
+    <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">Auto-generated DESeq2 pipeline for Msh2-KO vs Msh2-WT Lgr5&#43; ISC. Download as <code style="font-size:11px;background:rgba(168,85,247,0.1);color:var(--accent);padding:1px 6px;border-radius:4px;">.ipynb</code> or open in Colab.</p>
 
     <div class="notebook-cell">
-      <div class="notebook-cell-head">In [1] &middot; setup</div>
-      <div class="notebook-cell-body"><span class="kw">import</span> pandas <span class="kw">as</span> pd
+      <div class="notebook-cell-head">In [1] &middot; setup &amp; data loading</div>
+      <div class="notebook-cell-body"><span class="cmt"># Msh2-KO vs Msh2-WT Lgr5+ ISC — GSE153385</span>
+<span class="cmt"># 18 samples: 9 Lgr5+, 9 Lgr5- (3 WT, 3 HET, 3 KO each)</span>
+<span class="cmt"># Platform: Illumina HiSeq4000</span>
+
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
 <span class="kw">import</span> numpy <span class="kw">as</span> np
 <span class="kw">from</span> pydeseq2.dds <span class="kw">import</span> <span class="fn">DeseqDataSet</span>
 <span class="kw">from</span> pydeseq2.ds <span class="kw">import</span> <span class="fn">DeseqStats</span>
 
-counts = pd.<span class="fn">read_csv</span>(<span class="str">"msh2ko_colon_counts.tsv"</span>, sep=<span class="str">"\\t"</span>, index_col=<span class="str">"gene_id"</span>)
-metadata = pd.<span class="fn">read_csv</span>(<span class="str">"sample_metadata.tsv"</span>, sep=<span class="str">"\\t"</span>, index_col=<span class="str">"sample"</span>)</div>
+counts = pd.<span class="fn">read_csv</span>(<span class="str">"GSE153385_lgr5pos_counts.tsv"</span>, sep=<span class="str">"\\t"</span>, index_col=<span class="str">"gene_id"</span>)
+metadata = pd.<span class="fn">read_csv</span>(<span class="str">"sample_metadata.tsv"</span>, sep=<span class="str">"\\t"</span>, index_col=<span class="str">"sample"</span>)
+
+<span class="cmt"># Filter to Lgr5+ samples only</span>
+lgr5_pos = metadata[metadata.fraction == <span class="str">"Lgr5+"</span>]
+counts = counts[lgr5_pos.index]
+<span class="fn">print</span>(f<span class="str">"Samples: {counts.shape[1]}, Genes: {counts.shape[0]}"</span>)</div>
     </div>
 
     <div class="notebook-cell">
-      <div class="notebook-cell-head">In [2] &middot; DESeq2</div>
-      <div class="notebook-cell-body">dds = <span class="fn">DeseqDataSet</span>(counts=counts.T, metadata=metadata, design_factors=<span class="str">"condition"</span>)
+      <div class="notebook-cell-head">In [2] &middot; DESeq2 — Msh2-KO vs Msh2-WT</div>
+      <div class="notebook-cell-body">dds = <span class="fn">DeseqDataSet</span>(
+    counts=counts.T,
+    metadata=lgr5_pos,
+    design_factors=<span class="str">"genotype"</span>
+)
 dds.<span class="fn">deseq2</span>()
 
-stat = <span class="fn">DeseqStats</span>(dds, contrast=[<span class="str">"condition"</span>, <span class="str">"Msh2_KO"</span>, <span class="str">"WT"</span>])
+stat = <span class="fn">DeseqStats</span>(dds, contrast=[<span class="str">"genotype"</span>, <span class="str">"Msh2_KO"</span>, <span class="str">"Msh2_WT"</span>])
 stat.<span class="fn">summary</span>()
 
 res = stat.results_df
-sig = res[(res.padj &lt; 0.05) &amp; (res.log2FoldChange.<span class="fn">abs</span>() &gt; 1)]</div>
+sig = res[(res.padj &lt; 0.05) &amp; (res.log2FoldChange.<span class="fn">abs</span>() &gt;= 1)]
+<span class="fn">print</span>(f<span class="str">"DEGs: {len(sig)} (up: {(sig.log2FoldChange > 0).sum()}, down: {(sig.log2FoldChange < 0).sum()})"</span>)
+<span class="cmt"># Expected: 340 DEGs (284 up, 56 down)</span></div>
     </div>
 
     <div class="notebook-cell">
-      <div class="notebook-cell-head">In [3] &middot; volcano</div>
+      <div class="notebook-cell-head">In [3] &middot; volcano plot with real gene labels</div>
       <div class="notebook-cell-body"><span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
 
-mmr = [<span class="str">'Mlh1'</span>, <span class="str">'Pms2'</span>, <span class="str">'Msh6'</span>, <span class="str">'Exo1'</span>]
-wnt = [<span class="str">'Axin2'</span>, <span class="str">'Lgr5'</span>, <span class="str">'Myc'</span>, <span class="str">'Notch1'</span>]
-
 fig, ax = plt.<span class="fn">subplots</span>(figsize=(10, 7))
-ax.<span class="fn">scatter</span>(res.log2FoldChange, -np.<span class="fn">log10</span>(res.padj), c=<span class="str">'grey'</span>, alpha=0.3, s=5)
-plt.<span class="fn">savefig</span>(<span class="str">"volcano_msh2ko.pdf"</span>, dpi=300, bbox_inches=<span class="str">'tight'</span>)</div>
+ax.<span class="fn">scatter</span>(res.log2FoldChange, -np.<span class="fn">log10</span>(res.padj),
+         c=<span class="str">'grey'</span>, alpha=0.3, s=5)
+
+<span class="cmt"># Highlight Table 2 MMRd ISC signature genes</span>
+mmrd_sig = [<span class="str">'Spp1'</span>, <span class="str">'Mup22'</span>, <span class="str">'Slc26a9'</span>, <span class="str">'Muc6'</span>, <span class="str">'Car1'</span>,
+            <span class="str">'Aldh1a1'</span>, <span class="str">'Aqp5'</span>, <span class="str">'Cubn'</span>, <span class="str">'Pgc'</span>, <span class="str">'Ifit1'</span>]
+stem_down = [<span class="str">'Lgr5'</span>, <span class="str">'Ascl2'</span>, <span class="str">'Olfm4'</span>]
+
+<span class="kw">for</span> gene <span class="kw">in</span> mmrd_sig:
+    <span class="kw">if</span> gene <span class="kw">in</span> res.index:
+        row = res.loc[gene]
+        ax.<span class="fn">scatter</span>(row.log2FoldChange, -np.<span class="fn">log10</span>(row.padj),
+                  c=<span class="str">'red'</span>, s=30, zorder=5)
+        ax.<span class="fn">annotate</span>(gene, (row.log2FoldChange, -np.<span class="fn">log10</span>(row.padj)),
+                   fontsize=8, fontstyle=<span class="str">'italic'</span>)
+
+plt.<span class="fn">savefig</span>(<span class="str">"volcano_msh2ko_lgr5pos.pdf"</span>, dpi=300, bbox_inches=<span class="str">'tight'</span>)</div>
     </div>
 
     <div style="display:flex;gap:10px;margin-top:16px;">
@@ -1216,6 +1439,7 @@ plt.<span class="fn">savefig</span>(<span class="str">"volcano_msh2ko.pdf"</span
   overlay.classList.add('active');
 }
 
+/* ── Export modal ── */
 function openExport() {
   const overlay = document.getElementById('modal-overlay');
   const content = document.getElementById('modal-content');
@@ -1223,10 +1447,10 @@ function openExport() {
     <h3 style="font-size:16px;font-weight:600;margin-bottom:14px;">Export</h3>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
       ${[
-        ['Publication figures', 'PDF and SVG at 300 DPI, journal-ready'],
-        ['Full DEG table', 'CSV with all 1,247 DEGs and annotation'],
-        ['Reproducible notebook', '.ipynb covering the full pipeline'],
-        ['Methods section', 'Draft methods paragraph with versions and parameters']
+        ['Publication figures', 'Volcano + heatmap as PDF/SVG at 300 DPI — Table 2 MMRd ISC signature'],
+        ['Full DEG table', 'CSV with all 340 DEGs (284 up, 56 down) from GSE153385'],
+        ['Reproducible notebook', '.ipynb — DESeq2 pipeline for Msh2-KO vs Msh2-WT Lgr5+ ISC'],
+        ['Methods section', 'Draft methods paragraph with DESeq2 parameters, FDR ≤ 0.05, |log₂FC| ≥ 1']
       ].map(([t, d]) => `
         <div class="result-card" style="padding:16px;cursor:pointer;">
           <div style="font-weight:600;margin-bottom:4px;font-size:13px;">${t}</div>
@@ -1237,6 +1461,7 @@ function openExport() {
   overlay.classList.add('active');
 }
 
+/* ── Input helpers ── */
 function setInput(text) {
   const i = document.getElementById('user-input');
   i.value = text; i.focus();
@@ -1246,15 +1471,19 @@ function handleKey(e) {
   if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
 }
 
+let currentUser = 'we';
 function sendMessage() {
   const input = document.getElementById('user-input');
   const text = input.value.trim();
   if (!text) return;
 
   const chat = document.getElementById('chat-area');
+  const initials = currentUser === 'et' ? 'ET' : currentUser === 'ns' ? 'NS' : 'WE';
+  const extraClass = currentUser === 'et' ? ' et-msg' : '';
+
   const msg = document.createElement('div');
-  msg.className = 'msg user fade-in';
-  msg.innerHTML = `<div class="msg-avatar">WE</div><div class="msg-content"><p>${text.replace(/[<>]/g, '')}</p></div>`;
+  msg.className = 'msg user fade-in' + extraClass;
+  msg.innerHTML = `<div class="msg-avatar">${initials}</div><div class="msg-content"><p>${text.replace(/[<>]/g, '')}</p></div>`;
   chat.appendChild(msg);
   input.value = '';
 
@@ -1297,6 +1526,7 @@ function sendMessage() {
 }
 
 function switchUser(id) {
+  currentUser = id;
   document.querySelectorAll('.team-member').forEach(m => m.style.background = '');
   document.getElementById(`user-${id}`).style.background = 'var(--bg-card)';
 }
@@ -1311,6 +1541,7 @@ function loadRNAseq() {
   document.getElementById('demo-chat').style.display = 'block';
 }
 
+/* ── Init ── */
 document.addEventListener('DOMContentLoaded', () => {
   generateVolcano('volcano-svg', 42);
   generateHeatmap('heatmap-mini', 7);
